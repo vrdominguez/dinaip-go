@@ -1,0 +1,9 @@
+username: exampleUser
+password: examplePassword
+
+zones:
+  example.com:
+    - www
+    - subdomain
+  example.org:
+    - zone
