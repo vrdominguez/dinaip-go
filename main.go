@@ -45,7 +45,7 @@ func init() {
 	}
 
 	// Set file log
-	if file, err := os.OpenFile(configuration.Logs.Path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666); err != nil {
+	if file, err := os.OpenFile(configuration.Logs.Path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600); err != nil {
 		log.Panicf("Cannot create logs file at %s: %s", configuration.Logs.Path, err)
 	} else {
 		log.Infof("Logs changed to file: %s", configuration.Logs.Path)

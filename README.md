@@ -94,6 +94,6 @@ In this example:
 - ```copytruncate``` copies the current log file and truncates the original file, allowing ongoing logging without disrupting the program that writes to the log.
 - ```missingok``` ignores an error if the log file does not exist.
 - ```notifempty``` does not rotate the log file if it is empty.
-- ```create 644 systemUserForDinaIP systemGroupForDinaIP``` creates a new log file with the specified permissions and ownership if it does not exist, using the provided systemUserForDinaIP user and systemGroupForDinaIP group.
+- ```create 600 systemUserForDinaIP systemGroupForDinaIP``` creates a new log file with the specified permissions and ownership if it does not exist, using the provided systemUserForDinaIP user and systemGroupForDinaIP group.
 
 To use this configuration, save it as /etc/logrotate.d/dinaip or any other appropriate name. Logrotate will automatically rotate the /var/log/dinaip.log file based on the specified settings.
