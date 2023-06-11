@@ -10,7 +10,13 @@ import (
 type Config struct {
 	Username string              `yaml:"username"`
 	Password string              `yaml:"password"`
+	Logs     LogConfig           `yaml:"logs"`
 	Zones    map[string][]string `yaml:"zones"`
+}
+
+type LogConfig struct {
+	Path  string `yaml:"path"`
+	Level string `yaml:"level"`
 }
 
 func ReadConfig(filename string) (*Config, error) {
