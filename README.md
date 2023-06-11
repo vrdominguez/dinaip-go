@@ -32,7 +32,7 @@ After=network-online.target
 
 [Service]
 User=systemUserForDinaIP
-Group=systemUserForDinaIP
+Group=systemGroupForDinaIP
 ExecStart=/path/to/dinapi-go -c /path/to/config.yaml
 
 
@@ -63,7 +63,7 @@ Before running the dinaIP GO client, ensure that you have a valid configuration 
 1. Download the compiled program from the [lastest release](https://github.com/vrdominguez/dinaip-go/releases/latest) on the [project's GitHub page](https://github.com/vrdominguez/dinaip-go/releases) or compile it yourself.
 2. Move the binary to `/opt/dinaip-go/` or other path of your choice.
 3. Create a yaml configuration for the program. (I placed mine at `/etc/dinaIP.yaml`)
-4. If you don't want to run the service a root (yo may no run it as root), crete an user and a group for it.
+4. If you don't want to run the service a root (you may no run it as root), crete an user and a group for it.
 5. Create your system.d file from example on this README.
 6. Save the unit file with a .service extension (e.g., `dinaip-go.service`).
 7. Move the unit file to the appropriate location for systemd unit files (e.g., `/etc/systemd/system/`).
@@ -73,3 +73,27 @@ Before running the dinaIP GO client, ensure that you have a valid configuration 
 11. Verify that the service is running: `sudo systemctl status dinaip-go`.
 
 Please note that you may need to adjust the unit file and paths according to your specific setup and requirements.
+
+Also, you may want to configure log rotation with your prefered log rotating system. Here is an example with logrotate, for logs placed at `/var/log/dinaip.log`:
+
+```logrotate
+/var/log/dinaip.log {
+    daily
+    rotate 30
+    copytruncate
+    missingok
+    notifempty
+    create 644 systemUserForDinaIP systemGroupForDinaIP
+}
+```
+
+In this example:
+
+- ```daily``` indicates that log rotation should occur daily.
+- ```rotate 30``` specifies that only 30 rotated log files should be kept.
+- ```copytruncate``` copies the current log file and truncates the original file, allowing ongoing logging without disrupting the program that writes to the log.
+- ```missingok``` ignores an error if the log file does not exist.
+- ```notifempty``` does not rotate the log file if it is empty.
+- ```create 644 systemUserForDinaIP systemGroupForDinaIP``` creates a new log file with the specified permissions and ownership if it does not exist, using the provided systemUserForDinaIP user and systemGroupForDinaIP group.
+
+To use this configuration, save it as /etc/logrotate.d/dinaip or any other appropriate name. Logrotate will automatically rotate the /var/log/dinaip.log file based on the specified settings.
