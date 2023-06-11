@@ -63,7 +63,7 @@ Before running the dinaIP GO client, ensure that you have a valid configuration 
 1. Download the compiled program from the [lastest release](https://github.com/vrdominguez/dinaip-go/releases/latest) on the [project's GitHub page](https://github.com/vrdominguez/dinaip-go/releases) or compile it yourself.
 2. Move the binary to `/opt/dinaip-go/` or other path of your choice.
 3. Create a yaml configuration for the program. (I placed mine at `/etc/dinaIP.yaml`)
-4. If you don't want to run the service a root (you may no run it as root), crete an user and a group for it.
+4. If you don't want to run the service as root (you may not run it as root), create an user and a group for it.
 5. Create your system.d file from example on this README.
 6. Save the unit file with a .service extension (e.g., `dinaip-go.service`).
 7. Move the unit file to the appropriate location for systemd unit files (e.g., `/etc/systemd/system/`).
