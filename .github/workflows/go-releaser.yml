@@ -1,7 +1,6 @@
-name: goreleaser
+name: Run goreleaser
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - '*'
