@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/vrdominguez/dinaip-go/compare/v0.1.0...v0.1.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* Bad subdomain field name on logs ([#7](https://github.com/vrdominguez/dinaip-go/issues/7)) ([f257e73](https://github.com/vrdominguez/dinaip-go/commit/f257e734c18a20a325870e08591da636d799419d))
+* Go releaser not launched after release-please ([#5](https://github.com/vrdominguez/dinaip-go/issues/5)) ([5de0977](https://github.com/vrdominguez/dinaip-go/commit/5de0977a124416414e06bb02bade3c9a0cfdefe3))
+
 ## [0.1.0](https://github.com/vrdominguez/dinaip-go/compare/v0.0.1...v0.1.0) (2023-06-11)
 
 
