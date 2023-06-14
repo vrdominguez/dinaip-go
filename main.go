@@ -80,8 +80,8 @@ func main() {
 
 				for _, subdomain := range subdomains {
 					logFields := convertToLogrusFields(map[string]string{
-						"domain":  domain,
-						subdomain: subdomain,
+						"domain":    domain,
+						"subdomain": subdomain,
 					})
 					subdomainLogger := log.WithFields(logFields)
 
