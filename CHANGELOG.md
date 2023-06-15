@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/vrdominguez/dinaip-go/compare/v0.1.1...v0.2.0) (2023-06-15)
+
+
+### Features
+
+* Subcommand for config generation ([#10](https://github.com/vrdominguez/dinaip-go/issues/10)) ([3ffc38d](https://github.com/vrdominguez/dinaip-go/commit/3ffc38dcc85bd5050235d221e1b60d693a35e2a0))
+* Use cobra cli for easy addition of new subcommands ([#8](https://github.com/vrdominguez/dinaip-go/issues/8)) ([9ed11bf](https://github.com/vrdominguez/dinaip-go/commit/9ed11bfa426fb68ef0d05280661f4db841244968))
+
 ## [0.1.1](https://github.com/vrdominguez/dinaip-go/compare/v0.1.0...v0.1.1) (2023-06-14)
 
 
