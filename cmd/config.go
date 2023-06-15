@@ -30,20 +30,26 @@ configuration file.`,
 		var config config.Config
 
 		fmt.Print("Enter username: ")
-		fmt.Scan(&config.Username)
+		if _, err := fmt.Scan(&config.Username); err != nil {
+			return fmt.Errorf("cannot read username: %s", err)
+		}
 
 		fmt.Print("Enter password: ")
 		password, err := term.ReadPassword(int(os.Stdin.Fd()))
 		if err != nil {
-			return fmt.Errorf("cannot read password: %e", err)
+			return fmt.Errorf("cannot read password: %s", err)
 		}
 		config.Password = string(password)
 
 		fmt.Print("\nEnter log level: ")
-		fmt.Scan(&config.Logs.Level)
+		if _, err := fmt.Scan(&config.Logs.Level); err != nil {
+			return fmt.Errorf("cannot read log level: %s", err)
+		}
 
 		fmt.Print("Enter log path: ")
-		fmt.Scan(&config.Logs.Path)
+		if _, err := fmt.Scan(&config.Logs.Path); err != nil {
+			return fmt.Errorf("cannot tead log path: %s", err)
+		}
 
 		config.Zones = make(map[string][]string)
 
@@ -52,7 +58,9 @@ configuration file.`,
 			var subdomains []string
 
 			fmt.Print("Enter domain (or 'done' to finish): ")
-			fmt.Scan(&domain)
+			if _, err := fmt.Scan(&domain); err != nil {
+				return fmt.Errorf("cannot read domain: %e", err)
+			}
 
 			if domain == "done" {
 				break
@@ -62,7 +70,9 @@ configuration file.`,
 				var subdomain string
 
 				fmt.Print("Enter subdomain (or 'done' to finish): ")
-				fmt.Scan(&subdomain)
+				if _, err := fmt.Scan(&subdomain); err != nil {
+					return fmt.Errorf("cannot read subdomain: %e", err)
+				}
 
 				if subdomain == "done" {
 					break
