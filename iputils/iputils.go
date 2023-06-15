@@ -1,3 +1,8 @@
+/*
+Package iputils provides utility functions for working with IP addresses and domain names.
+
+The package includes functions for obtaining the public IP address and converting a fully qualified domain name (FQDN) to an IP address.
+*/
 package iputils
 
 import (
@@ -9,6 +14,7 @@ import (
 	"strings"
 )
 
+// ipObtainServices defines a list of services used to obtain the public IP address.
 var ipObtainServices = []string{
 	"http://dinadns01.dinaserver.com",
 	"http://dinadns02.dinaserver.com",
@@ -18,6 +24,20 @@ var ipObtainServices = []string{
 	"http://ifconfig.me/ip",
 }
 
+/*
+GetPublicIp retrieves the public IP address by making requests to predefined services.
+
+It returns the public IP address as a string and an error if any.
+
+Example usage:
+
+	ip, err := iputils.GetPublicIp()
+	if err != nil {
+		// Handle error
+	}
+
+	// Use the public IP address...
+*/
 func GetPublicIp() (string, error) {
 	for _, service := range ipObtainServices {
 		parsedURL, err := url.Parse(service)
@@ -45,6 +65,20 @@ func GetPublicIp() (string, error) {
 	return "", fmt.Errorf("unable to retrieve public IP from any service")
 }
 
+/*
+FqdnToIP converts a fully qualified domain name (FQDN) to an IP address.
+
+It takes the domain name as input and returns the corresponding IP address as a string and an error if any.
+
+Example usage:
+
+	ip, err := iputils.FqdnToIP("example.com")
+	if err != nil {
+		// Handle error
+	}
+
+	// Use the IP address...
+*/
 func FqdnToIP(domain string) (string, error) {
 	ip := net.ParseIP(domain)
 	if ip != nil {

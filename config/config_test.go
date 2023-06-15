@@ -21,7 +21,7 @@ func TestReadConfig(t *testing.T) {
 		assert.Equal(t, "examplePassword", config.Password)
 		assert.Equal(t, []string{"www", "subdomain"}, config.Zones["example.com"])
 		assert.Equal(t, []string{"zone"}, config.Zones["example.org"])
-		assert.Equal(t, "/var/log/dinaip.log", config.Logs.Path)
+		assert.Equal(t, "/tmp/test-dinaip.log", config.Logs.Path)
 		assert.Equal(t, "DEBUG", config.Logs.Level)
 	})
 }
