@@ -46,6 +46,15 @@ Make sure to replace userDinahostingAPI and passwordDinahostingAPI with your act
 
 Before running the dinaIP GO client, ensure that you have a valid configuration file with the correct values, including a log file path where the program can write logs.
 
+### Config generation
+
+A onfiguration file can be generated from the application, with the config subcommand:
+
+1. Run dinaip-go config --config /path/to/config.yaml
+2. Enter the data asked on terminal for file to be generated
+
+After this, dinaip-go will write a valid config file for your application.
+
 ### Runing from source
 
 1. Clone this repository.
@@ -83,7 +92,7 @@ Also, you may want to configure log rotation with your prefered log rotating sys
     copytruncate
     missingok
     notifempty
-    create 644 systemUserForDinaIP systemGroupForDinaIP
+    create 600 systemUserForDinaIP systemGroupForDinaIP
 }
 ```
 
