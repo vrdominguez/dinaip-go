@@ -33,7 +33,7 @@ After=network-online.target
 [Service]
 User=systemUserForDinaIP
 Group=systemGroupForDinaIP
-ExecStart=/path/to/dinapi-go -c /path/to/config.yaml
+ExecStart=/path/to/dinapi-go --config /path/to/config.yaml
 
 
 [Install]
@@ -50,13 +50,13 @@ Before running the dinaIP GO client, ensure that you have a valid configuration 
 
 1. Clone this repository.
 2. Open a terminal and navigate to the directory where the program is located.
-3. Run the code with the command `go run ./main.go -c /path/to/config.yaml`, replacing /path/to/config.yaml with the path to your configuration file.
+3. Run the code with the command `go run ./main.go --config /path/to/config.yaml`, replacing /path/to/config.yaml with the path to your configuration file.
 
 ### Running in the Command Line
 
 1. Download the compiled program from the [lastest release](https://github.com/vrdominguez/dinaip-go/releases/latest) on the [project's GitHub page](https://github.com/vrdominguez/dinaip-go/releases) or compile it yourself.
 2. Open a terminal and navigate to the directory where the program is located.
-3. Execute the command `./dinapi-go -c /path/to/config.yaml`, replacing /path/to/config.yaml with the path to your configuration file.
+3. Execute the command `./dinapi-go --config /path/to/config.yaml`, replacing /path/to/config.yaml with the path to your configuration file.
 
 ### Running as a Service (with systemd)
 

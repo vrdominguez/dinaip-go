@@ -2,7 +2,7 @@ username: exampleUser
 password: examplePassword
 
 logs:
-  path: /var/log/dinaip.log
+  path: /tmp/test-dinaip.log
   level: DEBUG
 
 zones:
