@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/vrdominguez/dinaip-go/compare/v0.2.0...v0.2.1) (2023-06-17)
+
+
+### Bug Fixes
+
+* Restore missing license file ([722d406](https://github.com/vrdominguez/dinaip-go/commit/722d406c2b2eaa58994e075607255f00a6f61295))
+
 ## [0.2.0](https://github.com/vrdominguez/dinaip-go/compare/v0.1.1...v0.2.0) (2023-06-15)
 
 
