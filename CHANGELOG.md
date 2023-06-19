@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/vrdominguez/dinaip-go/compare/v0.2.1...v0.2.2) (2023-06-19)
+
+
+### Bug Fixes
+
+* Error generating config without a previous valid file ([#13](https://github.com/vrdominguez/dinaip-go/issues/13)) ([c4054ab](https://github.com/vrdominguez/dinaip-go/commit/c4054abea8ae051e3d13342b95f3c9a999cca2ac))
+
 ## [0.2.1](https://github.com/vrdominguez/dinaip-go/compare/v0.2.0...v0.2.1) (2023-06-17)
 
 
