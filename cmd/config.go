@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"errors"
 	"fmt"
 	"os"
 
@@ -21,8 +22,18 @@ var configCmd = &cobra.Command{
 It will ask for all the necesary data and generate (or overwrite) the indicated
 configuration file.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if err := initializeLogger(configFile); err != nil {
-			return err
+		_, err := os.Stat(configFile)
+
+		if err != nil {
+			if errors.Is(err, os.ErrNotExist) {
+				log.Warnf("Log file (%s) does not exists", configFile)
+			} else {
+				log.Errorf("Cannot determine if config file (%s) already exists: %s", configFile, err)
+			}
+		} else {
+			if err := initializeLogger(configFile); err != nil {
+				log.Errorf("An invalid file already exists at %s, it will be overwritten.", configFile)
+			}
 		}
 
 		fmt.Println("Enter data for the config file:")
@@ -94,8 +105,14 @@ configuration file.`,
 			return fmt.Errorf("cannot write config file at %s: %s", configFile, err)
 		}
 
-		log.Infof("Generated new configuration file at %s", configFile)
 		fmt.Printf("Config file written at %s\n", configFile)
+
+		// Reload log config to write the log of config creation according to the new config
+		if err := initializeLogger(configFile); err != nil {
+			return err
+		}
+
+		log.Infof("Generated new configuration file at %s", configFile)
 		return nil
 	},
 }
