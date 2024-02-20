@@ -1,5 +1,8 @@
 # dinaIP GO
 
+[![gosec](https://github.com/vrdominguez/dinaip-go/actions/workflows/gosec.yml/badge.svg)](https://github.com/vrdominguez/dinaip-go/actions/workflows/gosec.yml) [![Release](https://img.shields.io/github/v/release/vrdominguez/dinaip-go?label=Release)](https://github.com/vrdominguez/dinaip-go/releases/latest)
+
+
 This is an updated version of the dinaIP client written in Go, developed as an opportunity to explore and experiment with Golang.
 
 ## Configuration
